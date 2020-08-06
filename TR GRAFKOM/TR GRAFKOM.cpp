@@ -1,5 +1,4 @@
-#include <GL/freeglut.h>\
-#include <window.s>
+#include <GL/freeglut.h>
 #include "header.h"
 
 
