@@ -49,41 +49,11 @@ void timer(int) {
 	glutTimerFunc(1000 / 30, timer, 0);
 	angle += 1.0f;
 
+
 }
 
 void keyboard(unsigned char key, int x, int y) {
 	switch (key) {
-
-	case 'j':
-		glRotatef(2.0, 1.0, 0.0, 0.0);
-		glutPostRedisplay();
-		break;
-
-	case 'u':
-		glRotatef(-2.0, 1.0, 0.0, 0.0);
-		glutPostRedisplay();
-		break;
-
-	case 'i':
-		glRotatef(2.0, 0.0, 1.0, 0.0);
-		glutPostRedisplay();
-		break;
-
-	case 'y':
-		glRotatef(-2.0, 0.0, 1.0, 0.0);
-		glutPostRedisplay();
-		break;
-
-	case 'n':
-		glRotatef(2.0, 0.0, 0.0, 1.0);
-		glutPostRedisplay();
-		break;
-
-	case 'm':
-		glRotatef(-2.0, 0.0, 0.0, 1.0);
-		glutPostRedisplay();
-		break;
-
 	case 'r':
 		glTranslatef(3.0, 0.0, 0.0);
 		glutPostRedisplay();
@@ -104,15 +74,6 @@ void keyboard(unsigned char key, int x, int y) {
 		glutPostRedisplay();
 		break;
 
-	case 'x':
-		if (_textureID) {
-			_textureID = 0;
-			glDisable(GL_DEPTH_TEST);
-		}
-		else {
-			_textureID = 1;
-			glEnable(GL_DEPTH_TEST);
-		}
 	}
 }
 
@@ -150,8 +111,8 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Texturing");
 	glutDisplayFunc(display);
 	myinit();
-	//glutKeyboardFunc(keyboard);
-	//glutSpecialFunc(key);
+	glutKeyboardFunc(keyboard);
+	glutSpecialFunc(key);
 	//glutReshapeFunc(ukuran);
 	glutTimerFunc(0, timer, 0);
 	glutMainLoop();
